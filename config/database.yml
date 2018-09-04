@@ -6,16 +6,15 @@ default: &default
   host: 127.0.0.1
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 2 } %>
+  schema_search_path: 'projeto_angula' 
 
 development:
   <<: *default
   database: local
-  schema_search_path: 'projeto_angula' 
 
 test: &test
   <<: *default
   database: local
-  schema_search_path: 'projeto_angula'
 
 cucumber:
   <<: *test
